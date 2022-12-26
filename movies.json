@@ -1,0 +1,50 @@
+[
+  {
+    "title": "The Shawshank Redemption ",
+    "year": 1994,
+    "duration": "144min",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",
+    "festivals": ["Cannas Film Festival","Berlin International Film Festival","Venice Film Festival"],
+    "actors": [
+      {
+        "name":"Morgan",
+        "lastname": "Freeman",
+        "nationality": "American"
+      },
+      {
+        "name":"William",
+        "lastname": "Sadler",
+        "nationality": "American"
+      },
+      {
+        "name":"Bob",
+        "lastname": "Gunton",
+        "nationality": "American"
+      }
+    ]
+  },
+  {
+    "title": "The Godfather",
+    "year": 1972,
+    "duration": "175min",
+    "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+    "festivals": ["Austin Film Festival","San Sebastián International Film","International Film Festival Rotterdam"],
+    "actors": [
+      {
+        "name":"Marlon",
+        "lastname": "Brando",
+        "nationality": "American"
+      },
+      {
+        "name":"Alfredo",
+        "lastname": "James",
+        "nationality": "American"
+      },
+      {
+        "name":"james",
+        "lastname": "Caan",
+        "nationality": "American"
+      }
+    ]
+  }
+]
