@@ -1,0 +1,47 @@
+$primary: #D3A739;
+$danger: #dd0000;
+$success: lime;
+$warning: orange;
+$info: aqua;
+@import "node_modules/bootstrap/scss/bootstrap";
+$form-floating-line-height: 1.25;
+$form-floating-input-padding-t:   1.625rem;
+$form-floating-input-padding-b:   .625rem;
+$form-floating-height:  add(2.5rem, $input-height-border);
+$form-floating-label-transform:   scale(.8) translateY(-.7rem) translateX(.15rem);
+@import "node_modules/bootstrap/scss/forms/floating-labels";
+.form-floating > label {
+  top:-20%;
+  color: #BBBBBB !important;
+}
+input {
+  background-color: #464646 !important;
+  border: none !important;
+  color: #BBBBBB !important;
+}
+.form-group {
+  width: 100%;
+}
+body {
+  background-color: #1e2125;
+  min-height: 100vh;
+}
+.navbar {
+  background-color: #030303 !important;
+}
+table {
+  color :#ffffff !important;
+  border-spacing: 0 .8rem !important;
+  border-collapse: separate;
+}
+tbody {
+
+}
+
+td , th {
+  border: none !important;
+}
+tbody > tr {
+  background-color: #1B1B1E !important;
+
+}
