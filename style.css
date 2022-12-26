@@ -1,0 +1,20 @@
+:root {
+    --black :#030303;
+    --secondary-black:#18181A;
+    --table-color:#1B1B1E;
+    --gold: #D3A739;
+}
+body {
+    background-color: var(--secondary-black);
+    min-height: 100vh;
+}
+section  {
+    width: 100%;
+}
+.btn-primary {
+    background-color:var(--gold) ;
+    border: var(--gold);
+}
+.btn-primary:hover {
+    background-color: #d3ae54;
+}
