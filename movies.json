@@ -10,17 +10,17 @@
       {
         "name":"Morgan",
         "lastname": "Freeman",
-        "nationality": "American"
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
       },
       {
         "name":"William",
         "lastname": "Sadler",
-        "nationality": "American"
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
       },
       {
         "name":"Bob",
         "lastname": "Gunton",
-        "nationality": "American"
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
       }
     ]
   },
@@ -35,17 +35,67 @@
       {
         "name":"Marlon",
         "lastname": "Brando",
-        "nationality": "American"
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
       },
       {
         "name":"Alfredo",
         "lastname": "James",
-        "nationality": "American"
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
       },
       {
         "name":"james",
         "lastname": "Caan",
-        "nationality": "American"
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "The Dark knight",
+    "year": 2008,
+    "duration": "152min",
+    "director": "Christopher Nolan",
+    "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM3aZmbE8MhZtPhQQ6SxqSAy05G8ITrmOT5hh7VIDW&usqp=CAE&s",
+    "festivals": ["Austin Film Festival","International Film Festival Rotterdam"],
+    "actors": [
+      {
+        "name":"Christian",
+        "lastname": "Bale",
+        "nationality": "https://flagsapi.com/GB/shiny/32.png"
+      },
+      {
+        "name":"Heath",
+        "lastname": "Ledger",
+        "nationality": "https://flagsapi.com/AU/shiny/32.png"
+      },
+      {
+        "name":"Aaron",
+        "lastname": "Eckhart",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "duration": "178min",
+    "director": "Peter Jackson",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg",
+    "festivals": ["Austin Film Festival","International Film Festival Rotterdam"],
+    "actors": [
+      {
+        "name":"Elijah",
+        "lastname": "Wood",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name":"Ian",
+        "lastname": "McKellen",
+        "nationality": "https://flagsapi.com/GB/shiny/32.png"
+      },
+      {
+        "name":"Orlando",
+        "lastname": "Bloom",
+        "nationality": "https://flagsapi.com/GB/shiny/32.png"
       }
     ]
   }

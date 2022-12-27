@@ -1,15 +1,21 @@
+
 $primary: #D3A739;
 $danger: #dd0000;
 $success: lime;
 $warning: orange;
 $info: aqua;
-@import "node_modules/bootstrap/scss/bootstrap";
 $form-floating-line-height: 1.25;
 $form-floating-input-padding-t:   1.625rem;
 $form-floating-input-padding-b:   .625rem;
+@import "node_modules/bootstrap/scss/bootstrap";
 $form-floating-height:  add(2.5rem, $input-height-border);
 $form-floating-label-transform:   scale(.8) translateY(-.7rem) translateX(.15rem);
 @import "node_modules/bootstrap/scss/forms/floating-labels";
+
+
+.link-nav.active {
+  color: rgba(211,174,84,0.8) !important;
+}
 .form-floating > label {
   top:-20%;
   color: #BBBBBB !important;
@@ -44,4 +50,13 @@ td , th {
 tbody > tr {
   background-color: #1B1B1E !important;
 
+}
+.active {
+  color: rgba(211,174,84,0.8) !important;
+}
+ul {
+  list-style: none !important;
+}
+table li {
+  margin-left: -2rem;
 }

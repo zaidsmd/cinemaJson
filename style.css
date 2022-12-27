@@ -10837,6 +10837,10 @@ textarea.form-control-lg {
   border-width: 1px 0;
 }
 
+.link-nav.active {
+  color: rgba(211, 174, 84, 0.8) !important;
+}
+
 .form-floating > label {
   top: -20%;
   color: #BBBBBB !important;
@@ -10873,6 +10877,18 @@ td, th {
 
 tbody > tr {
   background-color: #1B1B1E !important;
+}
+
+.active {
+  color: rgba(211, 174, 84, 0.8) !important;
+}
+
+ul {
+  list-style: none !important;
+}
+
+table li {
+  margin-left: -2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
