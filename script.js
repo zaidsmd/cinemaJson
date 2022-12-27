@@ -11,14 +11,19 @@ request.addEventListener('load', async () => {
     }
 )
 document.querySelector('#searchbar').addEventListener('keyup', ()=>{
-    document.querySelector('#tbody').innerHTML = ''
+    document.querySelector('#tbody').innerHTML = '';
     let filtered = mydata.filter(function (movie) {
         return movie.title.toLowerCase().includes(document.querySelector('#searchbar').value.toLowerCase());
     })
-    console.log(filtered)
-    filtered.forEach((movie)=>{
-        show(movie)
-    })
+    if (filtered.length == 0){
+        document.querySelector('.error').innerHTML = `We couldn’t find any matching to "${document.querySelector('#searchbar').value}"`;
+    }else {
+        document.querySelector('.error').innerHTML =''
+        filtered.forEach((movie)=>{
+            show(movie)
+        })
+    }
+
 } )
 function show(data) {
     let row = document.createElement('tr');
@@ -26,7 +31,7 @@ function show(data) {
     poster.setAttribute('scope', 'row');
     let img = document.createElement("img");
     img.setAttribute('src', data.poster);
-    img.style.width = '70px'
+    img.style.width = '70px';
     poster.appendChild(img)
     row.appendChild(poster);
     let title = document.createElement('td');
