@@ -6,11 +6,13 @@ $info: aqua;
 $form-floating-line-height: 1.25;
 $form-floating-input-padding-t: 1.625rem;
 $form-floating-input-padding-b: .625rem;
+$pagination-bg : #0000;
+$pagination-active-bg: $primary;
+$pagination-active-color: #0000;
 @import "node_modules/bootstrap/scss/bootstrap";
 $form-floating-height: add(2.5rem, $input-height-border);
 $form-floating-label-transform: scale(.8) translateY(-.7rem) translateX(.15rem);
 @import "node_modules/bootstrap/scss/forms/floating-labels";
-
 
 .link-nav.active {
   color: rgba(211, 174, 84, 0.8) !important;

@@ -4460,7 +4460,7 @@ textarea.form-control-lg {
   --bs-pagination-padding-y: 0.375rem;
   --bs-pagination-font-size: 1rem;
   --bs-pagination-color: var(--bs-link-color);
-  --bs-pagination-bg: #fff;
+  --bs-pagination-bg: rgba(0, 0, 0, 0);
   --bs-pagination-border-width: 1px;
   --bs-pagination-border-color: #dee2e6;
   --bs-pagination-border-radius: 0.375rem;
@@ -4470,7 +4470,7 @@ textarea.form-control-lg {
   --bs-pagination-focus-color: var(--bs-link-hover-color);
   --bs-pagination-focus-bg: #e9ecef;
   --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(211, 167, 57, 0.25);
-  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-color: rgba(0, 0, 0, 0);
   --bs-pagination-active-bg: #d3a739;
   --bs-pagination-active-border-color: #d3a739;
   --bs-pagination-disabled-color: #6c757d;

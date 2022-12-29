@@ -6,12 +6,11 @@ let myData;
 let titleKey = 0;
 let yearKey = 0;
 let durationKey = 0;
+let numberOfRows = 5;
 //###############- Action on response -###############
 request.addEventListener('load', async () => {
         let movies = JSON.parse(request.response);
-        await movies.forEach((movie) => { // await and async is added to make sure that request.response has been received
-            show(movie)
-        })
+        await show(movies);
         myData = movies //setting the data to global scope to used again without requesting it from json another time bcs the json won't be edited anyway
     }
 )
@@ -26,9 +25,7 @@ document.querySelector('#searchbar').addEventListener('keyup', () => { //add eve
         document.querySelector('.error').innerHTML = `We could’t find any matching to "${document.querySelector('#searchbar').value}"`;
     } else {
         document.querySelector('.error').innerHTML = '';
-        filtered.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-            show(movie);
-        })
+        show(filtered);
     }
 
 })
@@ -41,96 +38,95 @@ document.querySelectorAll('th:not(:first-child,:last-child,:nth-child(6),:nth-ch
         if (ev.target.id == 'title') {
             if (titleKey === 0) {
                 sortDescending(myData, ev.target.id,ev.target);
-                myData.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-                    show(movie);
-                })
+                show(myData);
                 titleKey = 1;
             } else {
-                sortAscendant(myData, ev.target.id,ev.target);
-                myData.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-                    show(movie);
-                })
+                sortAscendant(myData,ev.target.id,ev.target);
+                show(myData);
                 titleKey = 0;
             }
         } else if (ev.target.id == 'year') {
             if (yearKey === 0) {
-                sortDescending(myData,ev.target.id,ev.target);
-                myData.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-                    show(movie);
-                })
+                sortDescending(myData, ev.target.id,ev.target);
+                show(myData);
                 yearKey = 1;
             } else {
                 sortAscendant(myData,ev.target.id,ev.target);
-                myData.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-                    show(movie);
-                })
+                show(myData);
                 yearKey = 0;
             }
         } else if (ev.target.id == 'duration') {
             if (durationKey === 0) {
                 sortDescending(myData, ev.target.id,ev.target);
-                myData.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-                    show(movie);
-                })
+               show(myData);
                 durationKey = 1;
             } else {
                 sortAscendant(myData, ev.target.id,ev.target);
-                myData.forEach((movie) => { // literate into the filtered array and show the data in html table by using show function created below
-                    show(movie);
-                })
+                show(myData);
                 durationKey = 0;
             }
         }
     })
 })
 //#############- functions -################
+
 function show(data) { //nothing much to say here just some basic manipulation
-    let row = document.createElement('tr');
-    let poster = document.createElement('td');
-    poster.setAttribute('scope', 'row');
-    let img = document.createElement("img");
-    img.setAttribute('src', data.poster);
-    img.style.width = '70px';
-    poster.appendChild(img)
-    row.appendChild(poster);
-    let title = document.createElement('td');
-    title.append(data.title);
-    row.appendChild(title);
-    let year = document.createElement('td');
-    year.append(data.year);
-    row.appendChild(year);
-    let duration = document.createElement('td');
-    duration.append(data.duration);
-    row.appendChild(duration);
-    let director = document.createElement('td');
-    director.append(data.director);
-    row.appendChild(director);
-    let actors = document.createElement('td');
-    const actorsList = document.createElement("ul");
-    data.actors.forEach(actor => {
-        let li = document.createElement('li')
-        li.append(actor.name +"  "+ actor.lastname);
-        let flag = document.createElement("img");
-        flag.setAttribute('src', actor.nationality);
-        flag.style.marginLeft = "1rem"
-        li.append(flag)
-        li.classList.add('justify-content-between');
-        li.classList.add('pe-5')
-        li.classList.add('d-flex');
-        actorsList.append(li);
-    })
-    actors.appendChild(actorsList);
-    row.appendChild(actors)
-    let festivals = document.createElement('td');
-    const festivalList = document.createElement("ul");
-    data.festivals.forEach(festival => {
-        let li = document.createElement('li')
-        li.append(festival);
-        festivalList.appendChild(li);
-    })
-    festivals.appendChild(festivalList);
-    row.appendChild(festivals)
-    document.querySelector('#tbody').appendChild(row)
+    let ArrayOfData = [];
+    let firstIndex = 0;
+    let lasIndex = 4;
+    for (let i = 0; i < Math.ceil(data.length/5) ; i++) {
+        (lasIndex>data.length) ? (lasIndex = data.length) : ArrayOfData.push(data.splice(firstIndex,lasIndex));
+    }
+    for( let i =0 ; i<numberOfRows ; i++){
+        let object = data[i];
+        let row = document.createElement('tr');
+        let poster = document.createElement('td');
+        poster.setAttribute('scope', 'row');
+        let img = document.createElement("img");
+        img.setAttribute('src', object.poster);
+        img.style.width = '70px';
+        poster.appendChild(img)
+        row.appendChild(poster);
+        let title = document.createElement('td');
+        title.append(object.title);
+        row.appendChild(title);
+        let year = document.createElement('td');
+        year.append(object.year);
+        row.appendChild(year);
+        let duration = document.createElement('td');
+        duration.append(object.duration);
+        row.appendChild(duration);
+        let director = document.createElement('td');
+        director.append(object.director);
+        row.appendChild(director);
+        let actors = document.createElement('td');
+        const actorsList = document.createElement("ul");
+        object.actors.forEach(actor => {
+            let li = document.createElement('li')
+            li.append(actor.name +"  "+ actor.lastname);
+            let flag = document.createElement("img");
+            flag.setAttribute('src', actor.nationality);
+            flag.style.marginLeft = "1rem"
+            li.append(flag)
+            li.classList.add('justify-content-between');
+            li.classList.add('pe-5')
+            li.classList.add('d-flex');
+            actorsList.append(li);
+        })
+        actors.appendChild(actorsList);
+        row.appendChild(actors)
+        let festivals = document.createElement('td');
+        const festivalList = document.createElement("ul");
+        object.festivals.forEach(festival => {
+            let li = document.createElement('li')
+            li.append(festival);
+            festivalList.appendChild(li);
+        })
+        festivals.appendChild(festivalList);
+        row.appendChild(festivals)
+        document.querySelector('#tbody').appendChild(row)
+    }
+    createPages(data);
 }
 
 function sortAscendant(data, sortingValue,element) {
@@ -168,4 +164,34 @@ function sortDescending(data, sortingValue,element) {
         }
 
     })
+}
+function createPages(data) {
+    let numberOfPage = data.length /numberOfRows;
+    let ul = document.createElement('ul');
+    ul.classList.add('pagination')
+    let previous = document.createElement("li");
+    previous.classList.add('page-item');
+    let a = document.createElement('a');
+    a.classList.add('page-link');
+    a.append('Previous')
+    previous.append(a);
+    ul.append(previous);
+    for (let i = 0; i <numberOfPage ; i++) {
+        let li = document.createElement('li');
+        li.classList.add('page-item');
+        let a = document.createElement('a');
+        a.classList.add('page-link');
+        a.append(i+1)
+        li.append(a);
+        ul.append(li);
+    }
+    let next = document.createElement('li');
+    next.classList.add('page-item');
+    let nextA = document.createElement('a');
+    nextA.classList.add('page-link');
+    nextA.append('Next')
+    next.append(nextA);
+    ul.append(next);
+    document.querySelector('#pagination').innerHTML='';
+    document.querySelector('#pagination').append(ul);
 }
