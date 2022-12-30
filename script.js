@@ -1,3 +1,4 @@
+//Note :  To better understand please start by reading every function and understanding it  will leave comments like this one from part to part hope its helps
 //###############- making the request and setting my data to global scope -###############
 let request = new XMLHttpRequest();
 request.open("GET", "movies.json", true);
@@ -6,8 +7,8 @@ let myData;
 let titleKey = 0;
 let yearKey = 0;
 let durationKey = 0;
-let numberOfRows = 5;
 let lastArrayOfData = []
+let numberOfRows = +document.querySelector('#numberOfRows').value; //read number of rows in table that should be created
 //###############- Action on response -###############
 request.addEventListener('load', async () => {
         let movies = JSON.parse(request.response);
@@ -15,7 +16,7 @@ request.addEventListener('load', async () => {
         myData = movies //setting the data to global scope to used again without requesting it from json another time bcs the json won't be edited anyway
     }
 )
-//###############- Search -###############
+//###############- Search interface -###############
 document.querySelector('#searchbar').addEventListener('keyup', () => { //add event to the search input
     let filtered = myData.filter(function (movie) {
         return movie.title.toLowerCase().includes(document.querySelector('#searchbar').value.toLowerCase());
@@ -25,10 +26,17 @@ document.querySelector('#searchbar').addEventListener('keyup', () => { //add eve
         document.querySelector('.error').innerHTML = `We could’t find any matching to "${document.querySelector('#searchbar').value}"`;
     } else {
         document.querySelector('.error').innerHTML = '';
-        show(filtered, 0);
     }
+    show(filtered, 0);
+    console.log(filtered)
 
 })
+//###############- NumberOfRows Select -###############
+document.querySelector('#numberOfRows').addEventListener('change', (e) => {
+    numberOfRows = +e.target.value;
+    show(extract(lastArrayOfData), 0)
+})
+//###############- Sort interface -###############
 document.querySelectorAll('th:not(:first-child,:last-child,:nth-child(6),:nth-child(5))').forEach((th) => {
     th.addEventListener('click', (ev) => {
         document.querySelectorAll('th').forEach((e) => {
@@ -37,32 +45,26 @@ document.querySelectorAll('th:not(:first-child,:last-child,:nth-child(6),:nth-ch
         })
         if (ev.target.id == 'title') {
             if (titleKey === 0) {
-                sortDescending(myData, ev.target.id, ev.target);
-                show(myData, 0);
+                show(sortDescending(extract(lastArrayOfData), ev.target.id, ev.target), 0);
                 titleKey = 1;
             } else {
-                sortAscendant(myData, ev.target.id, ev.target);
-                show(myData, 0);
+                show(sortAscendant(extract(lastArrayOfData), ev.target.id, ev.target), 0);
                 titleKey = 0;
             }
         } else if (ev.target.id == 'year') {
             if (yearKey === 0) {
-                sortDescending(myData, ev.target.id, ev.target);
-                show(myData, 0);
+                show(sortDescending(extract(lastArrayOfData), ev.target.id, ev.target), 0);
                 yearKey = 1;
             } else {
-                sortAscendant(myData, ev.target.id, ev.target);
-                show(myData, 0);
+                show(sortAscendant(extract(lastArrayOfData), ev.target.id, ev.target), 0);
                 yearKey = 0;
             }
         } else if (ev.target.id == 'duration') {
             if (durationKey === 0) {
-                sortDescending(myData, ev.target.id, ev.target);
-                show(myData, 0);
+                show(sortDescending(extract(lastArrayOfData), ev.target.id, ev.target), 0);
                 durationKey = 1;
             } else {
-                sortAscendant(myData, ev.target.id, ev.target);
-                show(myData, 0);
+                show(sortAscendant(extract(lastArrayOfData), ev.target.id, ev.target), 0);
                 durationKey = 0;
             }
         }
@@ -71,14 +73,16 @@ document.querySelectorAll('th:not(:first-child,:last-child,:nth-child(6),:nth-ch
 
 //#############- functions -################
 
-function show(data, indexOfData) { //nothing much to say here just some basic manipulation
+//-------------------show function ----------------------
+// this is the function responsible for showing the data in page
+function show(data, indexOfData) {
     document.querySelector('#tbody').innerHTML = '';
     lastArrayOfData = [];
     let firstIndex = 0;
     let lasIndex = numberOfRows;
 
-    for (let i = 0; i < Math.ceil(data.length / numberOfRows); i++) {
-        if (lasIndex > data.length) {
+    for (let i = 0; i < Math.ceil(data.length / numberOfRows); i++) { // slice the array of data into smaller arrays in which evey on of them represent a page
+        if (lasIndex > data.length) { // check if the last index is greater than the array length
             lasIndex = data.length
         }
         lastArrayOfData.push(data.slice(firstIndex, lasIndex));
@@ -87,7 +91,7 @@ function show(data, indexOfData) { //nothing much to say here just some basic ma
     }
 
     for (let i = 0; i < lastArrayOfData[indexOfData].length; i++) {
-        let object = lastArrayOfData[indexOfData][i];
+        let object = lastArrayOfData[indexOfData][i]; //the array given will hav the smaller arrays like we said before, so we need to specify what is th page that we are creating and here comes the indexOfData that represent the page number -1
         let row = document.createElement('tr');
         let poster = document.createElement('td');
         poster.setAttribute('scope', 'row');
@@ -135,11 +139,13 @@ function show(data, indexOfData) { //nothing much to say here just some basic ma
         row.appendChild(festivals)
         document.querySelector('#tbody').appendChild(row)
     }
-    if (data[0][0] == null) {
-        createPages(data, indexOfData);
-    }
+    createPages(data, indexOfData);
+
 }
 
+//-------------------------------------------------------
+//-------------------Sort functions ----------------------
+// this function sort the array given from small to big
 function sortAscendant(data, sortingValue, element) {
     element.classList.remove('descendant');
     element.classList.add('ascendant');
@@ -155,12 +161,13 @@ function sortAscendant(data, sortingValue, element) {
         }
 
     })
+    return data;
 }
 
+// this function sort the array given from big to small
 function sortDescending(data, sortingValue, element) {
     element.classList.add('descendant');
     element.classList.remove('ascendant');
-    console.log(sortingValue)
     data.sort((a, b) => {
         if (sortingValue == 'year') { //numbers cannot set to lowercase or upper case
             let A = a[sortingValue];
@@ -173,24 +180,27 @@ function sortDescending(data, sortingValue, element) {
         }
 
     })
+    return data;
 }
 
+//------------------------------------------------------------
+// this function create the pagination links and add event listeners to every page link to make it possible to surf into the pages
 function createPages(data, indexOfData) {
-    let numberOfPage = Math.ceil(data.length / numberOfRows);
+    let numberOfPage = Math.ceil(data.length / numberOfRows); // here we divide the array length by number of rows that we want and then ceil the result to make the number integer
     let ul = document.createElement('ul');
     ul.classList.add('pagination')
     let previous = document.createElement("li");
     previous.classList.add('page-item');
-    if (indexOfData == 0) {
-        previous.classList.add('disabled')
-    } else {
-        previous.addEventListener('click', e => {
-            show(extract(lastArrayOfData), document.querySelector('#pagination .active').innerHTML - 2);
-        });
-    }
     let a = document.createElement('a');
     a.classList.add('page-link');
     a.append('Previous')
+    if (indexOfData == 0) {
+        previous.classList.add('disabled')
+    } else { //this statement here is to test the page shown is it the first if so the previous button should be disabled bcs there is no previous page
+        a.addEventListener('click', () => {
+            show(extract(lastArrayOfData), document.querySelector('#pagination .active').innerHTML - 2); // this is just call to the show  and extract functions
+        });
+    }
     previous.append(a);
     ul.append(previous);
     for (let i = 0; i < numberOfPage; i++) {
@@ -198,9 +208,9 @@ function createPages(data, indexOfData) {
         li.classList.add('page-item');
         let a = document.createElement('a');
         a.classList.add('page-link');
-        a.append(i + 1)
+        a.append(`${i + 1}`)
         a.addEventListener('click', e => {
-            show(extract(lastArrayOfData), ((e.target.innerHTML) - 1));
+            show(extract(lastArrayOfData), ((e.target.innerHTML) - 1)); // this is just call to the show  and extract functions
         })
         li.append(a);
         ul.append(li);
@@ -217,14 +227,17 @@ function createPages(data, indexOfData) {
     document.querySelector(`#pagination li:nth-child(${indexOfData + 2})>a`).classList.add('active')
     if (document.querySelector(`#pagination li:nth-child(${indexOfData + 2}) a`).innerHTML == numberOfPage) {
         document.querySelector('#pagination li:last-child').classList.add('disabled')
-    } else {
-        document.querySelector('#pagination li:last-child').addEventListener('click', e => {
+    } else {//this statement here is to test the page shown is it the last if so the next button should be disabled bcs there is no next page
+        document.querySelector('#pagination li:last-child').addEventListener('click', () => {
             show(extract(lastArrayOfData), +document.querySelector(`#pagination .active`).innerHTML);
         });
     }
 
 }
 
+//-----------------------------------------------------------------
+//-------------------Extract function--------------------
+// this function is the hero of this algo because we have pagination the las modified array of data is divided into small arrays so before creating the table with the create function this function extract the small arrays into one big array
 function extract(arrayToExtract) {
     let extractedArray = [];
     arrayToExtract.forEach(e => {
