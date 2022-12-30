@@ -1,8 +1,4 @@
 $primary: #d3a739;
-$danger: #dd0000;
-$success: lime;
-$warning: orange;
-$info: aqua;
 $form-floating-line-height: 1.25;
 $form-floating-input-padding-b: 0.525rem;
 $input-bg : #464646;
@@ -16,14 +12,8 @@ $pagination-bg : #0000;
 $pagination-active-bg: $primary;
 $pagination-active-color: #fff;
 $pagination-disabled-bg : #0000;
-@import "node_modules/bootstrap/scss/bootstrap-grid";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/grid";
-@import "node_modules/bootstrap/scss/forms/floating-labels";
-@import "node_modules/bootstrap/scss/forms/form-select";
+@import "node_modules/bootstrap/scss/bootstrap";
 $form-floating-height: add(3.5rem, $input-height-border);
-@import "node_modules/bootstrap/scss/forms/floating-labels";
-
 .link-nav.active {
   color: rgba(211, 174, 84, 0.8) !important;
 }
