@@ -6,9 +6,11 @@ $info: aqua;
 $form-floating-line-height: 1.25;
 $form-floating-input-padding-t: 1.625rem;
 $form-floating-input-padding-b: .625rem;
+$nav-tabs-link-active-color : $primary;
 $pagination-bg : #0000;
 $pagination-active-bg: $primary;
-$pagination-active-color: #0000;
+$pagination-active-color: #fff;
+$pagination-disabled-bg : #0000;
 @import "node_modules/bootstrap/scss/bootstrap";
 $form-floating-height: add(2.5rem, $input-height-border);
 $form-floating-label-transform: scale(.8) translateY(-.7rem) translateX(.15rem);
@@ -61,9 +63,6 @@ tbody > tr {
 
 }
 
-.active {
-  color: rgba(211, 174, 84, 0.8) !important;
-}
 
 ul {
   list-style: none !important;
@@ -112,4 +111,7 @@ th:not(:first-child,:last-child,:nth-child(6),:nth-child(5)):before {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   right: 10px;
+}
+a {
+  cursor: pointer !important;
 }
