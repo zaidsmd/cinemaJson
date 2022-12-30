@@ -224,5 +224,229 @@
         "nationality": "https://flagsapi.com/US/shiny/32.png"
       }
     ]
+  },
+  {
+    "title": "Interstellar",
+    "year": 2014,
+    "duration": "169min",
+    "director": "Christopher Nolan",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Matthew",
+        "lastname": "McConaughey",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Anne",
+        "lastname": "Hathaway",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Jessica",
+        "lastname": "Chastain",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "The Pianist",
+    "year": 2002,
+    "duration": "150min",
+    "director": "Roman Polanski",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Adrien",
+        "lastname": "Brody",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Thomas",
+        "lastname": "Krestschman",
+        "nationality": "https://flagsapi.com/DE/shiny/32.png"
+      },
+      {
+        "name": "Frank",
+        "lastname": "Finlay",
+        "nationality": "https://flagsapi.com/GB/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "Gladiator",
+    "year": 2000,
+    "duration": "155min",
+    "director": "Ridley Scott",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/f/fb/Gladiator_%282000_film_poster%29.png",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Russell",
+        "lastname": "Crowe",
+        "nationality": "https://flagsapi.com/NZ/shiny/32.png"
+      },
+      {
+        "name": "Joaquin",
+        "lastname": "Phonix",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Connie",
+        "lastname": "Nieslen",
+        "nationality": "https://flagsapi.com/DK/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "Django Unchained",
+    "year": 2012,
+    "duration": "165min",
+    "director": "Quentin Tarantino",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Jamie",
+        "lastname": "Foxx",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Leonardo",
+        "lastname": "DiCaprio",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Christoph",
+        "lastname": "Waltz",
+        "nationality": "https://flagsapi.com/DE/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "The Shining",
+    "year": 1980,
+    "duration": "146min",
+    "director": "Stanley Kubrick",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZWFlYmY2MGEtZjVkYS00YzU4LTg0YjQtYzY1ZGE3NTA5NGQxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Jack",
+        "lastname": "Nicholson",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Shelley",
+        "lastname": "Duvall",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Danny",
+        "lastname": "Lloyd",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "Full Metal Jacket",
+    "year": 1988,
+    "duration": "176min",
+    "director": "Stanley Kubrick",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzkxODk0NjEtYjc4Mi00ZDI0LTgyYjEtYzc1NDkxY2YzYTgyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Matthew",
+        "lastname": "Modine",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "R. Lee",
+        "lastname": "Ermey",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Vincent",
+        "lastname": "D'Onofrio",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "3 Idiots",
+    "year": 2009,
+    "duration": "170min",
+    "director": "Rajkumar Hirani",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNTkyOGVjMGEtNmQzZi00NzFlLTlhOWQtODYyMDc2ZGJmYzFhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "Amir",
+        "lastname": "Khan",
+        "nationality": "https://flagsapi.com/IN/shiny/32.png"
+      },
+      {
+        "name": "Madhavan",
+        "lastname": "",
+        "nationality": "https://flagsapi.com/IN/shiny/32.png"
+      },
+      {
+        "name": "Sharman",
+        "lastname": "Joshi",
+        "nationality": "https://flagsapi.com/IN/shiny/32.png"
+      }
+    ]
+  },
+  {
+    "title": "Scarface",
+    "year": 1983,
+    "duration": "170min",
+    "director": "Brian De Palma",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjdjNGQ4NDEtNTEwYS00MTgxLTliYzQtYzE2ZDRiZjFhZmNlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg",
+    "festivals": [
+      "Austin Film Festival",
+      "International Film Festival Rotterdam"
+    ],
+    "actors": [
+      {
+        "name": "AL",
+        "lastname": "Pacino",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Michelle",
+        "lastname": "Pfeiffer",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      },
+      {
+        "name": "Steven",
+        "lastname": "Bauer",
+        "nationality": "https://flagsapi.com/US/shiny/32.png"
+      }
+    ]
   }
 ]
