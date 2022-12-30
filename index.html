@@ -14,7 +14,7 @@
 <nav class="navbar navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a href=""><img src="images/logo.png" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+        <button class="navbar-toggler" type="button" id="menuButton" data-bs-toggle="offcanvas" data-bs-target="#menu"
                 aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,6 +26,8 @@
         <div class="form-floating w-50">
             <select class="form-select" id="numberOfRows" aria-label="Number of table rows">
                 <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
                 <option value="4">4</option>
                 <option selected value="5">5</option>
                 <option value="10">10</option>
@@ -36,7 +38,7 @@
         </div>
         <div class="input-group w-50">
             <div class="form-floating ">
-                <input type="search" id="searchbar" class="form-control" placeholder="email"/>
+                <input type="search" id="searchbar" class="form-control" placeholder="Key to search">
                 <label class="form-label" for="searchbar">Search</label>
             </div>
             <button type="button" class="btn btn-primary">
@@ -73,8 +75,8 @@
     </nav>
 </div>
 <!--Menu-->
-<div class="offcanvas offcanvas-end text-bg-dark" tabindex="1" id="offcanvasDarkNavbar"
-     aria-labelledby="offcanvasDarkNavbarLabel">
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="1" id="menu"
+     aria-labelledby="menuButton">
     <div class="offcanvas-header">
         <a href=""><img src="images/logo.png" alt=""></a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
