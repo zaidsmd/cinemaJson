@@ -190,7 +190,6 @@ function sortDescending(data, sortingValue, element) {
 // this function create the pagination links and add event listeners to every page link to make it possible to surf into the pages
 function createPages(data, indexOfData) {
     let numberOfPage = Math.ceil(data.length / numberOfRows); // here we divide the array length by number of rows that we want and then ceil the result to make the number integer
-    let pagination = numberOfPage
     let ul = document.createElement('ul');
     ul.classList.add('pagination')
     let previous = document.createElement("li");
