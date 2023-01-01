@@ -7,12 +7,15 @@
 }
 
 .pagination {
-    --bs-pagination-active-bg: var(--primary) !important;
+    --bs-pagination-active-bg: var(--dark-grey) !important;
+    --bs-pagination-active-color: var(--primary) !important;
     --bs-pagination-active-border-color: var(--white);
     --bs-pagination-bg: var(--dark-grey);
-    --bs-pagination-disabled-bg: var(--disabled);
-    --bs-pagination-disabled-color: var(--dark-grey);
+    --bs-pagination-disabled-color: var(--disabled);
+    --bs-pagination-disabled-bg: var(--dark-grey);
     --bs-pagination-color: var(--primary);
+    --bs-pagination-hover-color: var(--white);
+    --bs-pagination-hover-bg: var(--primary);
     overflow: hidden;
 }
 
@@ -154,5 +157,12 @@ a {
 .disabled {
     background-color: rgba(149, 149, 149, 0.2);
     color: white !important;
+}
+li>p {
+    text-overflow: ellipsis !important;
+    -webkit-line-clamp: 1;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */

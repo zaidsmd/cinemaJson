@@ -116,7 +116,9 @@ function show(data, indexOfData) {
         const actorsList = document.createElement("ul");
         object.actors.forEach(actor => {
             let li = document.createElement('li')
-            li.append(actor.name + "  " + actor.lastname);
+            let p = document.createElement('p');
+            p.append(actor.name + "  " + actor.lastname);
+            li.append(p)
             let flag = document.createElement("img");
             flag.setAttribute('src', actor.nationality);
             flag.style.marginLeft = "1rem"
@@ -132,7 +134,9 @@ function show(data, indexOfData) {
         const festivalList = document.createElement("ul");
         object.festivals.forEach(festival => {
             let li = document.createElement('li')
-            li.append(festival);
+            let p = document.createElement('p');
+            p.append(festival);
+            li.append(p)
             festivalList.appendChild(li);
         })
         festivals.appendChild(festivalList);
@@ -140,7 +144,6 @@ function show(data, indexOfData) {
         document.querySelector('#tbody').appendChild(row)
     }
     createPages(data, indexOfData);
-
 }
 
 //-------------------------------------------------------
@@ -187,6 +190,7 @@ function sortDescending(data, sortingValue, element) {
 // this function create the pagination links and add event listeners to every page link to make it possible to surf into the pages
 function createPages(data, indexOfData) {
     let numberOfPage = Math.ceil(data.length / numberOfRows); // here we divide the array length by number of rows that we want and then ceil the result to make the number integer
+    let pagination = numberOfPage
     let ul = document.createElement('ul');
     ul.classList.add('pagination')
     let previous = document.createElement("li");
@@ -198,7 +202,7 @@ function createPages(data, indexOfData) {
         previous.classList.add('disabled')
     } else { //this statement here is to test the page shown is it the first if so the previous button should be disabled bcs there is no previous page
         a.addEventListener('click', () => {
-            show(extract(lastArrayOfData), document.querySelector('#pagination .active').innerHTML - 2); // this is just call to the show  and extract functions
+            show(extract(lastArrayOfData), document.querySelector('#pagination .active').dataset.page - 2); // this is just call to the show  and extract functions
         });
     }
     previous.append(a);
@@ -208,10 +212,9 @@ function createPages(data, indexOfData) {
         li.classList.add('page-item');
         let a = document.createElement('a');
         a.classList.add('page-link');
-        a.append(`${i + 1}`)
-        a.addEventListener('click', e => {
-            show(extract(lastArrayOfData), ((e.target.innerHTML) - 1)); // this is just call to the show  and extract functions
-        })
+        a.classList.add('d-none')
+        a.append(`${i + 1}/${numberOfPage}`)
+        a.setAttribute('data-page',`${i + 1}`)
         li.append(a);
         ul.append(li);
     }
@@ -225,11 +228,12 @@ function createPages(data, indexOfData) {
     document.querySelector('#pagination').innerHTML = '';
     document.querySelector('#pagination').append(ul);
     document.querySelector(`#pagination li:nth-child(${indexOfData + 2})>a`).classList.add('active')
-    if (document.querySelector(`#pagination li:nth-child(${indexOfData + 2}) a`).innerHTML == numberOfPage) {
+    document.querySelector(`#pagination li:nth-child(${indexOfData + 2})>a`).classList.remove('d-none')
+    if (document.querySelector(`#pagination li:nth-child(${indexOfData + 2}) a`).dataset.page == numberOfPage) {
         document.querySelector('#pagination li:last-child').classList.add('disabled')
     } else {//this statement here is to test the page shown is it the last if so the next button should be disabled bcs there is no next page
         document.querySelector('#pagination li:last-child').addEventListener('click', () => {
-            show(extract(lastArrayOfData), +document.querySelector(`#pagination .active`).innerHTML);
+            show(extract(lastArrayOfData), +document.querySelector(`#pagination .active`).dataset.page);
         });
     }
 
